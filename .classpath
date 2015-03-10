@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="lib" path="C:/Users/Luk/Documents/Minecraft Programmierung/plugins/craftbukkit.jar"/>
+	<classpathentry kind="lib" path="lib/craftbukkit.jar"/>
+	<classpathentry kind="lib" path="lib/spring-core-4.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-expression-4.1.0.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
