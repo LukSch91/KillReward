@@ -1,5 +1,6 @@
 package me.bukkit.koarl91;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class KillReward extends JavaPlugin {

@@ -10,10 +10,7 @@ public class KillRewardCommandHandler implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		
-		
-		
 		Command cmd = new HelpCommand(sender);
-		sender.getName();
 		
 		//no args show help
 		if (args.length == 0) {
