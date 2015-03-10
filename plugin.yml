@@ -1,0 +1,8 @@
+name: KillReward
+main: me.bukkit.koarl91.KillReward
+version: 1.0
+commands:
+   killreward:
+      description: Prints a info message.
+      usage: /killreward [help/info]
+      		
