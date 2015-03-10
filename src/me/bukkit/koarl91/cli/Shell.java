@@ -358,8 +358,7 @@ public class Shell implements Runnable, Closeable {
 	 */
 	static class ShellCommandInvocationHandler implements InvocationHandler {
 		@Override
-		public Object invoke(Object target, Method method, Object... args)
-				throws Throwable {
+		public Object invoke(Object target, Method method, Object... args) throws Throwable {
 			return method.invoke(target, args);
 		}
 	}
