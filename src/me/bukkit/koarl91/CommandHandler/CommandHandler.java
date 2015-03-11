@@ -47,7 +47,7 @@ public class CommandHandler
         try 
         {
         	if(arguments.equals("")) sender.sendMessage(shell.invoke("/"+command, sender).toString());
-        	else sender.sendMessage(shell.invoke("/"+command + " " + arguments, sender).toString());
+        	else sender.sendMessage(shell.invoke("/"+command.getName() + " " + arguments, sender).toString());
 			return true;
 		} 
         catch (Throwable e) 
