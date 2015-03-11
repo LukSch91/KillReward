@@ -1,5 +1,6 @@
 package me.bukkit.koarl91.cli;
 
+import org.bukkit.command.CommandSender;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.support.DefaultConversionService;
 
@@ -292,6 +293,32 @@ public class Shell implements Runnable, Closeable {
 			args[i - 1] = conversionService.convert(parts[i],
 					cmdDef.targetMethod.getParameterTypes()[i - 1]);
 		}
+		return invocationHandler.invoke(cmdDef.targetObject,
+				cmdDef.targetMethod, args);
+	}
+	
+	public Object invoke(String cmd,CommandSender sender) throws Throwable {
+		if (cmd == null || (cmd = cmd.trim()).isEmpty()) {
+			return null;
+		}
+
+		int pos = cmd.indexOf(' ');
+		String cmdName = pos >= 0 ? cmd.substring(0, pos) : cmd;
+		ShellCommandDefinition cmdDef = commandMap.get(cmdName);
+		if (cmdDef == null) {
+			throw new IllegalArgumentException(String.format(
+					"Command '%s' not registered.", cmdName));
+		}
+
+		String[] parts = cmd.split("\\s+",
+				cmdDef.targetMethod.getParameterTypes().length + 1);
+		Object[] args = new Object[parts.length - 0];
+		for (int i = 1; i < parts.length; i++) {
+			args[i - 1] = conversionService.convert(parts[i],
+					cmdDef.targetMethod.getParameterTypes()[i - 1]);
+		}
+		args[parts.length] = sender;
+		
 		return invocationHandler.invoke(cmdDef.targetObject,
 				cmdDef.targetMethod, args);
 	}

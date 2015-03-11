@@ -6,7 +6,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import me.bukkit.koarl91.CommandHandler.CommandHandler;
 
-
 public class KillReward extends JavaPlugin 
 {
 	

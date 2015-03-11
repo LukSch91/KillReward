@@ -14,9 +14,8 @@ public class CommandHandler
 	{		
 		initShell();
 	}
-	
 	@Command
-	public String hello() throws IOException
+	public String hello(CommandSender sender) throws IOException
     {
     	return "Hallo!!!!\nDas ist ein Test";
     }
@@ -39,15 +38,16 @@ public class CommandHandler
 	public boolean cmd(CommandSender sender,
 			org.bukkit.command.Command command, String label, String[] args) 
 	{
-		String arguments=null;
+		String arguments="";
         for(int i=0; i<args.length;i++)
         {
-            if(arguments==null) arguments = "" + args;
+            if(arguments.equals("")) arguments = "" + args;
             else arguments += " " +args;
         }
         try 
         {
-			sender.sendMessage(shell.invoke("/"+command + " " + arguments).toString());
+        	if(arguments.equals("")) sender.sendMessage(shell.invoke("/"+command, sender).toString());
+        	else sender.sendMessage(shell.invoke("/"+command + " " + arguments, sender).toString());
 			return true;
 		} 
         catch (Throwable e) 
